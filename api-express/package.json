@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build express",
+    "build": "netlify-lambda build index.js",
     "start": "node index.js",
     "dev": "SET DEBUG=app & nodemon index-local.js"
   },
