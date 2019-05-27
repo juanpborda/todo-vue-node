@@ -2,10 +2,10 @@
   "name": "todoapi",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build server",
-    "dev": "SET DEBUG=app & nodemon index-local.js"
+    "start": "node index.js",
+    "dev": "SET DEBUG=app & nodemon index.js"
   },
   "author": "JB",
   "license": "ISC",
@@ -17,9 +17,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mongodb": "^3.2.6",
-    "morgan": "^1.9.1",
-    "netlify-lambda": "^1.4.13",
-    "serverless-http": "^2.0.2"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
