@@ -18,11 +18,12 @@ const todos = require('./routes/api/todo');
 
 if (process.env.NODE_ENV === 'production') {
     app.use('/.netlify/functions/server', todos);  // path must route to lambda
-    module.exports = app;
-    module.exports.handler = serverless(app);
 } else {
     app.use('/api/todos', todos);
     app.listen(port, () => {
         debug(`Listening on port ${chalk.green(port)}`);
     });
 }
+
+module.exports = app;
+module.exports.handler = serverless(app);
