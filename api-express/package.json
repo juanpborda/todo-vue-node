@@ -2,10 +2,9 @@
   "name": "todoapi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "build": "netlify-lambda build index.js",
-    "start": "node index.js",
+    "build": "netlify-lambda build server",
     "dev": "SET DEBUG=app & nodemon index-local.js"
   },
   "author": "JB",

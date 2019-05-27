@@ -11,9 +11,9 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
 
-const todos = require('./routes/api/todo');
+const todos = require('../routes/api/todo');
 
-app.use('/.netlify/functions/server', todos);  // path must route to lambda
+app.use('/.netlify/functions/index', todos);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);
