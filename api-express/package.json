@@ -1,0 +1,23 @@
+{
+  "name": "todoapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "SET DEBUG=app & nodemon index.js"
+  },
+  "author": "JB",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
