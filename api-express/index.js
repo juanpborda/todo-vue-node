@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
@@ -16,18 +17,18 @@ const todos = require('./routes/api/todo');
 
 app.use('/api/todos', todos);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(__dirname + '/public'));
-
-    app.get(/.*/, (req,res) => res.sendFile(__dirname + '/public/index.html'));
-}
-
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use('/.netlify/functions/server', router);  // path must route to lambda
 
-app.listen(3000, () => {
-    debug(`Listening on port ${chalk.green(port)}`);
-});
+    module.exports = app;
+    module.exports.handler = serverless(app);
+} else {
+    app.listen(port, () => {
+        debug(`Listening on port ${chalk.green(port)}`);
+    });
+}
+
+module.exports = app;
+module.exports.handler = serverless(app);
